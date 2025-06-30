@@ -4,7 +4,7 @@ services:
     container_name: whatsapp
     restart: always
     ports:
-      - "3000:3000"
+      - 3000
     volumes:
       - whatsapp:/app/storages
     environment:
@@ -16,3 +16,6 @@ services:
 
 volumes:
   whatsapp:
+networks:
+  dokploy-network:
+    external: true
