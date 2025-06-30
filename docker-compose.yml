@@ -5,7 +5,7 @@ services:
     ports:
       - 3000 # Or "3000:3000" if you want a fixed host port
     volumes:
-      - whatsapp:/app/storages
+      - whatsapp_storage:/app/storages
     environment:
       - APP_BASIC_AUTH=${APP_BASIC_AUTH}
       - APP_PORT=${APP_PORT}
@@ -16,7 +16,7 @@ services:
       - dokploy-network # <--- Connect to the external network
 
 volumes:
-  whatsapp:
+  whatsapp_storage:
 
 networks:
   dokploy-network:
