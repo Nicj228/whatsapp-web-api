@@ -1,10 +1,9 @@
 services:
   whatsapp:
     image: aldinokemal2104/go-whatsapp-web-multidevice
-    container_name: whatsapp
     restart: always
     ports:
-      - 3000
+      - 3000 # Or "3000:3000" if you want a fixed host port
     volumes:
       - whatsapp:/app/storages
     environment:
@@ -13,9 +12,12 @@ services:
       - APP_DEBUG=${APP_DEBUG}
       - APP_OS=${APP_OS}
       - APP_ACCOUNT_VALIDATION=${APP_ACCOUNT_VALIDATION}
+    networks: # <--- Add this section
+      - dokploy-network # <--- Connect to the external network
 
 volumes:
   whatsapp:
+
 networks:
   dokploy-network:
     external: true
